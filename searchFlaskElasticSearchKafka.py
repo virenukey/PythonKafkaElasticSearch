@@ -9,11 +9,11 @@ import simplejson
 app = Flask(__name__)
 
 def producer():
-    producer = KafkaProducer(bootstrap_servers=['192.168.234.129:9092'])
+    producer = KafkaProducer(bootstrap_servers=['kafkaBroker:9092'])
     return producer
 
 def consumer():
-    consumer = KafkaConsumer(bootstrap_servers=['192.168.234.129:9092'],
+    consumer = KafkaConsumer(bootstrap_servers=['kafkaBroker:9092'],
                              auto_offset_reset='earliest',
                              consumer_timeout_ms=1000,
                              group_id=1,
@@ -39,7 +39,7 @@ def index():
         print(message.value)
         val = json.loads(message.value)
     print(val)
-    es = Elasticsearch([{'host': '192.168.234.129', 'port': 9200}])
+    es = Elasticsearch([{'host': 'ElasticSearcIP', 'port': 9200}])
     res = es.index(index="qa_kb", doc_type="link", id=val["docId"], body={"name": val["name"], "link": val["link"],
                                                                        "keyword": val["keyword"]})
     return res['result']
@@ -47,7 +47,7 @@ def index():
 @app.route('/search', methods=['POST'])
 def search():
     searchTearm = request.form['searchbox']
-    es = Elasticsearch([{'host':'192.168.234.129','port':9200}])
+    es = Elasticsearch([{'host':'ElasticsearchIP','port':9200}])
     res = es.search(index="qa_kb", doc_type="link", body={"query": {"match": {"keyword": searchTearm}}})
     if res["hits"]["hits"]:
         a = []
@@ -62,7 +62,7 @@ def search():
 @app.route('/name', methods=['POST'])
 def name():
     searchTearm = request.form['namesearchbox']
-    es = Elasticsearch([{'host':'192.168.234.129','port':9200}])
+    es = Elasticsearch([{'host':'ElasticsearchIP','port':9200}])
     res = es.search(index="qa_kb", doc_type="link", body={"query": {"match": {"name": searchTearm}}})
     if res["hits"]["hits"]:
         a = []
