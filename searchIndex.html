@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" >
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+        <title>Search</title>
+	</head>
+	<body>
+		<form action="http://localhost:5000/index" method="POST" >
+		<p>
+		Name:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="name" align="right" width="48" height="48"> To define hyperlinks<br><br>
+		Link:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="link" align="right" width="48" height="48"> e.g https://www.tutorialspoint.com/python/<br><br>
+		Keywords:&nbsp<input type="text" name="keyword" align="right" width="48" height="48"> Searchable keyword <br><br>
+		DocId:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="docId" align="right" width="48" height="48"> Enter docId to insert and update document   <br><br>
+		<INPUT type="submit" value="Send"> <INPUT type="reset">
+		</p>
+		</form>
+	</body>
+	<body>
+		<form action="http://localhost:5000/search" method="POST">
+		Search by keywords: <input type="text" name="searchbox">
+		<input type="submit" value="Submit">
+		<input type="reset" value="Reset"> <br><br>
+		</form>
+	</body>
+	<body>
+		<form action="http://localhost:5000/name" method="POST">
+		Search by name: <input type="text" name="namesearchbox">
+		<input type="submit" value="Submit">
+		<input type="reset" value="Reset"> <br><br>
+		</form>
+	</body>
+</html>
