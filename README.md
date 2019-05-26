@@ -35,11 +35,11 @@ Getting Started
 3. Start "searchFlaskElasticSearchKafka.py"
 4. Open "searchIndex.html"
 5. Enter the following:
-a. Name of the Document or Link in "Name" field
-b. Link of webpage in "Link" field
-c. Keywords using we want to search this document in "Keyword" field
-d. Incremental value of DocId in "DocId" field
-e. Click on "Submit"
+    - Name of the Document or Link in "Name" field
+    - Link of webpage in "Link" field
+    - Keywords using we want to search this document in "Keyword" field
+    - Incremental value of DocId in "DocId" field
+    - Click on "Submit"
 6. Will get response from elastic search, where response will be either "created" or "updated"
 7. Verify newly indexed document using either, search by "Name" or "Keyword"
 8. On response of above, you will get hyperlink of indexed document with description
